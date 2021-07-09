@@ -1275,12 +1275,12 @@ int gw_context_init(gw_context_t *ctx) {
   ctx->account_count = ctx->prev_account.count;
 
   /* verify kv_state merkle proof */
-  ret = gw_smt_verify(ctx->prev_account.merkle_root, &ctx->kv_state,
-                      ctx->kv_state_proof, ctx->kv_state_proof_size);
-  if (ret != 0) {
-    ckb_debug("failed to merkle verify prev account merkle root");
-    return ret;
-  }
+  // ret = gw_smt_verify(ctx->prev_account.merkle_root, &ctx->kv_state,
+  //                     ctx->kv_state_proof, ctx->kv_state_proof_size);
+  // if (ret != 0) {
+  //   ckb_debug("failed to merkle verify prev account merkle root");
+  //   return ret;
+  // }
 
   return 0;
 }
@@ -1303,12 +1303,12 @@ int gw_finalize(gw_context_t *ctx) {
   }
 
   gw_state_normalize(&ctx->kv_state);
-  int ret = gw_smt_verify(ctx->post_account.merkle_root, &ctx->kv_state,
-                          ctx->kv_state_proof, ctx->kv_state_proof_size);
-  if (ret != 0) {
-    ckb_debug("failed to merkle verify post account merkle root");
-    return ret;
-  }
+  // int ret = gw_smt_verify(ctx->post_account.merkle_root, &ctx->kv_state,
+  //                         ctx->kv_state_proof, ctx->kv_state_proof_size);
+  // if (ret != 0) {
+  //   ckb_debug("failed to merkle verify post account merkle root");
+  //   return ret;
+  // }
   return 0;
 }
 
